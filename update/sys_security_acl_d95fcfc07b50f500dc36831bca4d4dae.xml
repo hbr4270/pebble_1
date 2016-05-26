@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl">
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description/>
+        <name>pebble_info</name>
+        <operation display_value="read">read</operation>
+        <script/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>admin_SHARE</sys_created_by>
+        <sys_created_on>2014-11-05 22:40:23</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>d95fcfc07b50f500dc36831bca4d4dae</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>pebble_info</sys_name>
+        <sys_package display_value="Pebble Incidents" source="50d09ae77b4cb500dc36831bca4d4d95">50d09ae77b4cb500dc36831bca4d4d95</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Pebble Incidents">50d09ae77b4cb500dc36831bca4d4d95</sys_scope>
+        <sys_update_name>sys_security_acl_d95fcfc07b50f500dc36831bca4d4dae</sys_update_name>
+        <sys_updated_by>admin_SHARE</sys_updated_by>
+        <sys_updated_on>2014-11-05 22:40:23</sys_updated_on>
+        <type display_value="ui_page">ui_page</type>
+    </sys_security_acl>
+</record_update>

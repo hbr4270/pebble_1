@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Enable debug logging</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>pebble.debug</name>
+        <read_roles/>
+        <suffix/>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin_SHARE</sys_created_by>
+        <sys_created_on>2014-11-04 21:24:31</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>da64f5bf7b8cb500dc36831bca4d4d7a</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>pebble.debug</sys_name>
+        <sys_package display_value="Pebble Incidents" source="50d09ae77b4cb500dc36831bca4d4d95">50d09ae77b4cb500dc36831bca4d4d95</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Pebble Incidents">50d09ae77b4cb500dc36831bca4d4d95</sys_scope>
+        <sys_update_name>sys_properties_da64f5bf7b8cb500dc36831bca4d4d7a</sys_update_name>
+        <sys_updated_by>admin_SHARE</sys_updated_by>
+        <sys_updated_on>2014-11-05 22:37:06</sys_updated_on>
+        <type>boolean</type>
+        <value>true</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=da64f5bf7b8cb500dc36831bca4d4d7a"/>
+</record_update>

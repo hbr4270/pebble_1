@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description>Instructions for configuring Pebble Smartwatch integration with Pebble Cards</description>
+        <direct>false</direct>
+        <endpoint/>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+<h2>Welcome to Pebble Smartwatch integration with ServiceNow</h2>
+Pebble Smartwatch integration requires two parts: Software installed on your Pebble Smartwatch, and a ServiceNow application installed on your instance. If you're reading this, you've already got half of what you need!<p/>
+
+Next you'll need to install Pebble Cards. Open the Pebble App on your iPhone, and click the little "hamburger" icon in the upper-left corner. Then tap "Get Apps":<br/>
+<img src="pebble_step1.pngx" width="320" height="568"/><br/>
+
+Next, tap "Search" in the upper-right corner:<br/>
+<img src="pebble_step2.pngx" width="320" height="568"/><br/>
+
+Search for "Pebble Cards", and once you've found it, click the "Add" button to install it on your Pebble:<br/>
+<img src="pebble_step3.pngx" width="320" height="568"/><br/>
+
+Now that you have the app installed, you'll need to configure it to query your instance. Swipe to select your "Cards for Pebble" app, and tap "Settings":<br/>
+<img src="pebble_step4.pngx" width="320" height="568"/><br/>
+
+Scroll down to the "Add Card" section, and swipe sideways until you can see the rightmost icon "Custom":<br/>
+<img src="pebble_step5.pngx" width="320" height="568"/><br/>
+
+Tap the URL field, and enter the URL for your instance's numIncidents.do page like so: https://<strong>username</strong>:<strong>password</strong>@${gs.getProperty('instance_name')}.service-now.com/numIncidents.do<br/>
+<img src="pebble_step6.pngx" width="320" height="568"/><br/>
+
+<h3>Note that there is a potential security issue here!</h3>
+Because Pebble Cards does not present an authentication dialog, you will have to use a URL 'trick' to send your username and password embedded in the URL. Anyone who has access to your smartphone will be able to see your ServiceNow password. Because of this, please consider making a very limited user on your instance who *only* has access to this page, and nothing else on your instance.
+</j:jelly>]]></html>
+        <name>pebble_info</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>admin_SHARE</sys_created_by>
+        <sys_created_on>2014-11-05 20:29:08</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>5e41fe8c7b10f500dc36831bca4d4db4</sys_id>
+        <sys_mod_count>24</sys_mod_count>
+        <sys_name>pebble_info</sys_name>
+        <sys_package display_value="Pebble Incidents" source="50d09ae77b4cb500dc36831bca4d4d95">50d09ae77b4cb500dc36831bca4d4d95</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Pebble Incidents">50d09ae77b4cb500dc36831bca4d4d95</sys_scope>
+        <sys_update_name>sys_ui_page_5e41fe8c7b10f500dc36831bca4d4db4</sys_update_name>
+        <sys_updated_by>admin_SHARE</sys_updated_by>
+        <sys_updated_on>2014-11-05 22:58:15</sys_updated_on>
+    </sys_ui_page>
+</record_update>

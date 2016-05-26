@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_processor">
+    <sys_processor action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <description>Queries the incident table, returning the most recently created incident's short description. Output is JSON, in a form that Pebble Smartwatch's app "Pebble Cards" can consume. Configure Pebble Cards URL to point to https://username:password@instancename.service-now.com/numIncidents.do</description>
+        <interactive>false</interactive>
+        <name>numIncidents</name>
+        <parameters/>
+        <params_endpoint/>
+        <path>numIncidents</path>
+        <path_endpoint/>
+        <require_csrf>false</require_csrf>
+        <roles/>
+        <script><![CDATA[generateJSONForPebble();
+
+// Pebble Cards expects JSON of the form: {"content":"Text to display on card","refresh_frequency":900}
+// This function queries a table for the most recent records, and returns the short description of the most recently-created row
+// If the user does not have permission to view the table, a warning message is displayed
+// *** Note: New feature added to query *any* table, not just Incident!
+// ********* So despite the name "numIncidents.do", this code will query any table as defined by property pebble.table
+
+function generateJSONForPebble() {
+  var logSource = 'Pebble';
+  var json = new JSON(); // This object makes it easy to return properly-formatted JSON
+  var returnedObj = {};
+  returnedObj.content = 'No items so far today';
+  returnedObj.refresh_frequency = parseInt(gs.getProperty('pebble.refresh_seconds'));
+  var numToday = 0;
+  
+  if( gs.getProperty('pebble.enabled') =='true' ) {
+    if( gs.getProperty('pebble.debug') == 'true' ) {
+      gs.log( 'username=' + gs.getUserName(), logSource );
+    }
+    var gr = new GlideRecord( gs.getProperty('pebble.table') ); // pebble.table property holds the name of the table to query
+  
+    if( gr.canRead() ) {
+      gr.addEncodedQuery( 'active=true^sys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)' );
+      gr.orderByDesc( 'sys_created_on' );
+      gr.query();
+      if( gr.next() ) {
+        numToday = gr.getRowCount();
+        returnedObj.content = '' + numToday + " " + gr.getClassDisplayValue() + (numToday!=1?"s":"") + "\n" + gr.short_description.toString();
+      }
+    } else {
+      returnedObj.content = 'You do not have permission to view this page';
+    }
+  } else {
+    returnedObj.content = 'Pebble integration disabled';
+  }
+  g_processor.writeOutput( "application/json; charset=utf-8", json.encode(returnedObj) );
+}]]></script>
+        <sys_class_name>sys_processor</sys_class_name>
+        <sys_created_by>admin_SHARE</sys_created_by>
+        <sys_created_on>2014-11-03 18:14:46</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>565fb3d77b0cb500dc36831bca4d4d89</sys_id>
+        <sys_mod_count>63</sys_mod_count>
+        <sys_name>numIncidents</sys_name>
+        <sys_package display_value="Pebble Incidents" source="50d09ae77b4cb500dc36831bca4d4d95">50d09ae77b4cb500dc36831bca4d4d95</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Pebble Incidents">50d09ae77b4cb500dc36831bca4d4d95</sys_scope>
+        <sys_update_name>sys_processor_565fb3d77b0cb500dc36831bca4d4d89</sys_update_name>
+        <sys_updated_by>admin_SHARE</sys_updated_by>
+        <sys_updated_on>2014-11-05 22:36:53</sys_updated_on>
+        <type>script</type>
+    </sys_processor>
+</record_update>
